@@ -41,9 +41,8 @@ const renderDirectors = allDirectors.map(director=>{
         <NavBar/>
       </header>
       <main>
-        <h1>Director's Page</h1>
+        <h1>Directors Page</h1>
         { renderDirectors }
-
       </main>
     </>
   );

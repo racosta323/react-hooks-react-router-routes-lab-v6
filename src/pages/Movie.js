@@ -34,9 +34,7 @@ const renderGenres = (movies===null) ? null : movies.genres.map((genre)=><span k
       <main>
         <h1>{ renderTitle }</h1>
         <p>{ renderTime }</p>
-        <p>
-          { renderGenres }
-        </p>
+        { renderGenres }
       </main>
     </>
   );
