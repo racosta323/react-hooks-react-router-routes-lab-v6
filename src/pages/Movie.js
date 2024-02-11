@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 
 function Movie() {
 
-  const [movies, setMovies] = useState({})
+  const [movies, setMovies] = useState(null)
   
   const params = useParams()
   const userId = params.id
@@ -13,10 +13,17 @@ function Movie() {
   useEffect(()=>{
     fetch (`http://localhost:4000/movies/${userId}`)
     .then (resp=>resp.json())
-    .then(data => setMovies(data))
+    .then(data => {
+      setMovies(data)
+      }
+    )
     .catch(error=>console.log(error))
   }, [userId])
 
+
+const renderTitle = (movies===null) ? null : movies.title
+const renderTime = (movies===null) ? null : movies.time
+const renderGenres = (movies===null) ? null : movies.genres.map((genre)=><span key ={genre}>{genre}</span>)
 
 
   return (
@@ -25,13 +32,10 @@ function Movie() {
         <NavBar />
       </header>
       <main>
-        <h1>{movies.title}</h1>
-        <p>{movies.time}</p>
+        <h1>{ renderTitle }</h1>
+        <p>{ renderTime }</p>
         <p>
-          {movies.genres}
-          <span>
-            {movies.genres}
-          </span>
+          { renderGenres }
         </p>
       </main>
     </>
