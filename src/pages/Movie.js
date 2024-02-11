@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 
 function Movie() {
 
-  const [movie, setMovies] = useState({})
+  const [movies, setMovies] = useState({})
   
   const params = useParams()
   const userId = params.id
@@ -18,18 +18,19 @@ function Movie() {
   }, [userId])
 
 
+
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main>
-        <h1>{movie.title}</h1>
-        <p>{movie.time}</p>
+        <h1>{movies.title}</h1>
+        <p>{movies.time}</p>
         <p>
-          {movie.genres}
+          {movies.genres}
           <span>
-            {movie.genres}
+            {movies.genres}
           </span>
         </p>
       </main>
